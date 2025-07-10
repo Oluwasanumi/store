@@ -1,13 +1,11 @@
 package com.caspercodes.store;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-
 //@Service
 public class  OrderService {
 
     private final PaymentService paymentService;
 
-    public OrderService(@Qualifier("stripe") PaymentService paymentService) {
+    public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
