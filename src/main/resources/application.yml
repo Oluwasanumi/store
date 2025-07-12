@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: store
+
+mail:
+    server:
+        host: smtp.example.com
+        port: 587
+
+payment-gateway: paypal
+
+stripe:
+    apiUrl: https://api.stripe.com
+    enabled: true
+    supported-currencies: USD,EUR,GBP
+    timeout: 1000
