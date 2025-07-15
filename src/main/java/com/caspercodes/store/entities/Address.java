@@ -1,13 +1,12 @@
 package com.caspercodes.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
+@ToString
 @Entity
 @Table(name = "addresses")
 @NoArgsConstructor
@@ -30,6 +29,8 @@ public class Address {
     @Column(name = "zip")
     private String zip;
 
-//    @Column(name = "user_id", nullable = false)
-//    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private User user;
 }
