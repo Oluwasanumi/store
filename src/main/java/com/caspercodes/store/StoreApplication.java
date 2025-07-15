@@ -1,12 +1,18 @@
 package com.caspercodes.store;
 
-import org.springframework.boot.SpringApplication;
+import com.caspercodes.store.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StoreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StoreApplication.class, args);
+//        SpringApplication.run(StoreApplication.class, args);
+
+        var user = User.builder()
+                .name("admin")
+                .email("admin@mail.com")
+                .password("admins")
+                .build();
     }
 }
