@@ -1,16 +1,15 @@
 package com.caspercodes.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
+@Builder
+@ToString
 @Table(name = "profiles")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,4 +30,10 @@ public class Profile {
 
     @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    @ToString.Exclude
+    private User user;
 }

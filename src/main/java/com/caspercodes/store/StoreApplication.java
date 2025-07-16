@@ -1,6 +1,6 @@
 package com.caspercodes.store;
 
-import com.caspercodes.store.entities.Address;
+import com.caspercodes.store.entities.Profile;
 import com.caspercodes.store.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,14 +16,12 @@ public class StoreApplication {
                 .password("admins")
                 .build();
 
-        Address address = Address.builder().
-                street("123 Main St")
-                .city("Springfield")
-                .state("IL")
-                .zip("62701")
+        Profile profile = Profile.builder()
+                .bio("bio")
                 .build();
 
-        user.addAddress(address);
+        user.setProfile(profile);
+        profile.setUser(user);
 
         System.out.println(user);
     }
