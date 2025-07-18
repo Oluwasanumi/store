@@ -3,7 +3,6 @@ package com.caspercodes.store.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,11 +10,9 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name = "categories")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Byte id;
 
@@ -23,6 +20,6 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
-    @ToString.Exclude
     private Set<Product> products = new HashSet<>();
+
 }
